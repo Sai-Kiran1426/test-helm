@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: us-central1-docker.pkg.dev/gcp-test-472411/repo2/python-app
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8080
